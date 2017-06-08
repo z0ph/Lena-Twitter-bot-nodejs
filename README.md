@@ -11,7 +11,10 @@ I'm using this to learn Node.js language and Git.
 - Favorite
 - Follow
 
-## Installation:
+## Node.js Installation
+Follow this great [guide](https://gist.github.com/nrollr/325e9bc4c35a0523d290b38cfa3c5142) (Applicable to AWS Amazon Linux (EC2))
+
+## Lena Installation:
 - `mkdir bot`
 - `cd bot`
 - `npm init` (follow the wizard)
@@ -25,9 +28,11 @@ I'm using this to learn Node.js language and Git.
 
 ## Configuration:
 - Setup your Consumer and Access Token in `config.js` file
-- Setup crontab to periodicaly run your nodejs files.
+- Setup crontab to periodicaly run your Node.js files.
 	- `crontab -e`
-	- Example for 3 hours scheduling: `* */3 * * *	/usr/local/bin/node /path/to/your/bot/follow.js >> /path/to/your/logs/logs-follow.txt`
+	- Example for 3 hours scheduling: 
+
+	`* */3 * * *	/usr/local/bin/node /path/to/your/bot/follow.js >> /path/to/your/logs/logs-follow.txt`
 
 ## Todo:
 
@@ -36,7 +41,7 @@ I'm using this to learn Node.js language and Git.
 - Follow back followers
 - Reply to DM
 - Send DM to new followers
-- Etc... 
+- etc... 
 
 ## Beware
 
