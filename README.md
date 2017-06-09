@@ -11,7 +11,7 @@ I'm using this to learn Node.js language and Git.
 - Favorite
 - Follow
 
-## Node.js Installation
+## Node.js Installation:
 Follow this great [guide](https://gist.github.com/nrollr/325e9bc4c35a0523d290b38cfa3c5142) (Applicable to AWS Amazon Linux (EC2))
 
 ## Lena Installation:
@@ -26,13 +26,24 @@ Follow this great [guide](https://gist.github.com/nrollr/325e9bc4c35a0523d290b38
 	- `Access Token Secret`
 - Download in your bot folder all .js files
 
-## Configuration:
-- Setup your Consumer and Access Token in `config.js` file
+## Lena Configuration:
+- Setup your Consumer and Access Token (Key and Secret) in `config.js` file
+- Configure your search criteria (`params`), and iteration in each .js file
+
+``` js
+var params = {
+  q: '#Nodejs OR #Github',
+  count: 10,
+  result_type: 'recent',
+  lang: 'fr'
+}
+```
+
 - Setup crontab to periodicaly run your Node.js files.
 	- `crontab -e`
 	- Example for 3 hours scheduling: 
 
-	`* */3 * * *	/usr/local/bin/node /path/to/your/bot/follow.js >> /path/to/your/logs/logs-follow.txt`
+	`* */12 * * *	/usr/local/bin/node /path/to/your/bot/follow.js >> /path/to/your/logs/logs-follow.txt`
 
 ## Todo:
 
@@ -41,8 +52,11 @@ Follow this great [guide](https://gist.github.com/nrollr/325e9bc4c35a0523d290b38
 - Follow back followers
 - Reply to DM
 - Send DM to new followers
+- Bio description search
+- Timestamp Logs
+- #Follow Friday
 - etc... 
 
-## Beware
+## Beware:
 
 Beware of the current Twitter [rate limit](https://dev.twitter.com/rest/public/rate-limits)
