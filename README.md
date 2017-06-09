@@ -43,7 +43,7 @@ var params = {
 	- `crontab -e`
 	- Example for 3 hours scheduling: 
 
-	`* */12 * * *	/usr/local/bin/node /path/to/your/bot/follow.js >> /path/to/your/logs/logs-follow.txt`
+	`0 */12 * * *	/usr/local/bin/node /path/to/your/bot/follow.js >> /path/to/your/logs/logs-follow.txt`
 
 ## Todo:
 
