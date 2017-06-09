@@ -41,7 +41,7 @@ var params = {
 
 - Setup crontab to periodicaly run your Node.js files.
 	- `crontab -e`
-	- Example for 3 hours scheduling: 
+	- Example for each 12 hours scheduling: 
 
 	`0 */12 * * *	/usr/local/bin/node /path/to/your/bot/follow.js >> /path/to/your/logs/logs-follow.txt`
 
