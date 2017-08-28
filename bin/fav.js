@@ -1,14 +1,16 @@
 // fav.js
 var Twitter = require('twitter');
-var config = require('./config.js');
+var config = require('../config/config.js');
 var T = new Twitter(config);
+var ts = Math.round(new Date().getTime() / 1000);
 
 var params = {
-  q: '#Nodejs OR #Github',
+  q: '#OpenStack OR @aws_actus OR @OpenStackFr',
   count: 10,
   result_type: 'recent',
   lang: 'fr'
 }
+
 
 T.get('search/tweets', params, function(err, data, response) {
   if(!err){
@@ -20,17 +22,17 @@ T.get('search/tweets', params, function(err, data, response) {
       T.post('favorites/create', id, function(err, response){
         // If the favorite fails, log the error message
         if(err){
-          console.log(err[0].message);
+          console.log(ts, err[0].message);
         }
         // If the favorite is successful, log the url of the tweet
         else{
           let username = response.user.screen_name;
           let tweetId = response.id_str;
-          console.log('Favorited: ', `https://twitter.com/${username}/status/${tweetId}`)
+          console.log(ts, 'Favorited: ', `https://twitter.com/${username}/status/${tweetId}`)
         }
       });
     }
   } else {
-    console.log(err);
+    console.log(ts, err);
   }
 })

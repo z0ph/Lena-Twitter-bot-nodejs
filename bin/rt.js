@@ -1,10 +1,11 @@
 // rt.js
 var Twitter = require('twitter');
-var config = require('./config.js');
+var config = require('../config/config.js');
 var T = new Twitter(config);
+var ts = Math.round(new Date().getTime() / 1000);
 
 var params = {
-  q: '#Nodejs OR #Github',
+  q: '#OpenStack OR @aws_actus',
   count: 4,
   result_type: 'recent',
   lang: 'fr'
@@ -21,15 +22,15 @@ var params = {
       T.post('statuses/retweet/' + id, function(err, data, response) {
         // If the Retweet fails, log the error message
         if(err){
-          console.log(err);
+          console.log(ts, err);
         }
         // If the Retweet is successful, log the url of the tweet
         else{
-          console.log('Retweeted: ', `${data.text}`);
+          console.log(ts, 'Retweeted: ', `${data.text}`);
         }
       });
     }
   } else {
-    console.log(err);
+    console.log(ts, err);
   }
 })
