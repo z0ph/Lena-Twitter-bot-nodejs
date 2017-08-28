@@ -1,6 +1,6 @@
 // rt.js
 var Twitter = require('twitter');
-var config = require('/srv/lena-bot/config/config.js');
+var config = require('../config/config.js');
 var T = new Twitter(config);
 var ts = Math.round(new Date().getTime() / 1000);
 
