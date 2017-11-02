@@ -1,0 +1,17 @@
+service: Lena-bot
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  region: eu-west-1
+
+functions:
+  favorite:
+    handler: handler.favourite
+  rt:
+    handler: handler.rt
+  follow:
+    handler: handler.follow
+
+    events:
+      - schedule: rate(60 minutes)
