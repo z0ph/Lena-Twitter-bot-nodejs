@@ -1,7 +1,8 @@
 'use strict';
-module.exports.favourite = (event, context, callback) => {
 
 // fav.js
+module.exports.favourite = (event, context, callback) => {
+
 var Twitter = require('twitter');
 var config = require('./config.js');
 var T = new Twitter(config);
@@ -39,9 +40,9 @@ T.get('search/tweets', params, function(err, data, response) {
 })
 };
 
+// rt.js
 module.exports.rt = (event, context, callback) => {
 
-// rt.js
 var Twitter = require('twitter');
 var config = require('./config.js');
 var T = new Twitter(config);
@@ -78,9 +79,35 @@ var params = {
 })
 };
 
-module.exports.follow = (event, context, callback) => {
+// stat.js
+module.exports.stat = (event, context, callback) => {
+
+var Twitter = require('twitter');
+var config = require('./config.js');
+var T = new Twitter(config);
+var fs = require("fs");
+
+var params = {
+  screen_name: 'zoph'
+}
+
+Date.prototype.getWeek = function() {
+        var onejan = new Date(this.getFullYear(), 0, 1);
+        return Math.ceil((((this - onejan) / 86400000) + onejan.getDay() + 1) / 7);
+}
+var weekNumber = (new Date()).getWeek();
+var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+var now = new Date();
+
+T.get('users/show', params, function(error, tweets, response) {
+  if(error) throw error;
+  console.log(`${weekNumber},${tweets.followers_count},${tweets.friends_count}`);
+});
+};
 
 // follow.js
+module.exports.follow = (event, context, callback) => {
+
 var Twitter = require('twitter');
 var config = require('./config.js');
 var T = new Twitter(config);
