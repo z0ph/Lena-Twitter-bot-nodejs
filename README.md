@@ -35,7 +35,6 @@ On a simple Linux, with AWSCLI installed.
 
 ### deploy your serverless stack
 - `serverless deploy --stage prod`
-- 
 
 Warning: some Lambda functions won't be scheduled (no lambda triggers). You will need to setup it manually.
 
